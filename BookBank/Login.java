@@ -42,8 +42,7 @@ class Login extends JFrame
 				{
 				String username=usertext.getText();
 				String password=passtext.getText();
-				Class.forName("com.mysql.jdbc.Driver");
-				connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/bookbank","root","jaswanth");		
+				connection=ConnectionFile.getConnection();		
 				PreparedStatement statement=connection.prepareStatement("select pass from studentdetails where appid=?");
 				statement.setString(1,username);
 				ResultSet rs=statement.executeQuery();
